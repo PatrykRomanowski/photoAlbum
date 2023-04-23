@@ -1,11 +1,18 @@
 import React from "react";
+import { BrowserRouter as Router, Link } from "react-router-dom";
 
 const NavigarionComponent = () => {
   return (
     <div>
-      <button>dodaj zdjęcia</button>
-      <button>album</button>
-      <button>logowanie</button>
+      <div>
+        <Link to="/addPhoto">DODAJ ZDJĘCIE</Link>
+      </div>
+      <div>
+        <Link to="/album">ALBUM</Link>
+      </div>
+      <div>
+        <Link to="/">LOGOWANIE</Link>
+      </div>
     </div>
   );
 };
