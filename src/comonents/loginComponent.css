@@ -1,1 +1,51 @@
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 100px;
+}
 
+input {
+  margin: 10px 0;
+  padding: 10px;
+  border: 1px solid gray;
+  border-radius: 5px;
+  width: 300px;
+  font-size: 16px;
+}
+
+button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+button:hover {
+  background-color: #0069d9;
+}
+
+.inputText {
+  font-family: "Roboto-M";
+  font-size: 14px;
+}
+
+.addPhotoButton {
+  display: flex;
+  align-self: center;
+  /* text-align: center; */
+  width: 30%;
+  margin-bottom: 30px;
+}
+
+.addPhotoDescription {
+  font-family: "Roboto";
+  font-size: 14px;
+  text-transform: uppercase;
+  margin-top: 20px;
+  text-align: center;
+}

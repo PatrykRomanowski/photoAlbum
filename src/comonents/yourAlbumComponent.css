@@ -1,0 +1,21 @@
+.albumContainer {
+  display: flex;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.itemData {
+}
+
+.itemName {
+  width: 20vw;
+}
+
+.allAlbumContainer {
+  margin-top: 50px;
+}
+
+.albumTitle {
+}

@@ -15,7 +15,7 @@ const firebaseConfig = {
 
 export const app = initializeApp(firebaseConfig);
 
-const storage = getStorage(app);
+const myStorage = getStorage(app);
 export const authTest = getAuth(app);
 
-export default storage;
+export default myStorage;

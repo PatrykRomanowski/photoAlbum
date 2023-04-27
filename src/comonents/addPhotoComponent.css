@@ -1,0 +1,36 @@
+.addPhotoContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.dropText {
+  font-family: "Roboto";
+}
+
+.addPhotoTextTitle {
+  font-size: 22px;
+  font-family: "Roboto-M";
+  color: #444;
+  text-transform: uppercase;
+  text-align: center;
+  margin-top: 80px;
+  margin-bottom: 50px;
+}
+
+.inputStyle {
+  display: flex;
+  align-self: center;
+}
+
+select {
+  margin: 10px 0;
+  padding: 10px;
+  border: 1px solid gray;
+  border-radius: 5px;
+  width: 300px;
+  font-size: 16px;
+}
+
+.addPhotoButton {
+  width: 20%;
+}

@@ -1,0 +1,77 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 10vh;
+  background-color: #777;
+  font-family: "Changa One", sans-serif;
+  color: white;
+}
+
+.title {
+  font-size: 33px;
+  margin-left: 12px;
+}
+
+.menu {
+  display: flex;
+}
+
+.menu-item {
+  margin: 10px;
+}
+
+.header-link {
+  text-transform: none;
+  text-decoration: none;
+  color: white;
+  transition: color 0.3s ease-in-out;
+}
+
+.header-link:hover {
+  color: black;
+}
+
+.shopping-card {
+  display: flex;
+  align-items: center;
+}
+
+.shopping-card-text {
+  margin: 10px;
+  margin-right: 20px;
+}
+/* Jurek dodal H1 i P  */
+h1 {
+  color: blue;
+  font-family: verdana;
+  font-size: 300%;
+}
+
+/* input[type="text"],
+select {
+  width: 60%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+} */
+
+/* input[type="submit"] {
+  width: 20%;
+  background-color: #aab1aa;
+  color: white;
+  padding: 14px 20px;
+  margin: 20px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin: auto;
+} */
+
+/* input[type="submit"]:hover {
+  background-color: #191a19;
+} */

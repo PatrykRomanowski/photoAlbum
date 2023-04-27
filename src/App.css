@@ -2,3 +2,24 @@
   margin: 0;
   padding: 0;
 }
+
+@font-face {
+  font-family: "Changa One";
+  src: url("fonts/ChangaOne-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Roboto";
+  src: url("fonts/Roboto-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Roboto-M";
+  src: url("fonts/Roboto-Medium.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
