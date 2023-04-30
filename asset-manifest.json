@@ -1,29 +1,29 @@
 {
   "files": {
-    "main.css": "/photoAlbum/static/css/main.93671a7a.css",
-    "main.js": "/photoAlbum/static/js/main.383143d5.js",
-    "static/js/51.ef8d0723.chunk.js": "/photoAlbum/static/js/51.ef8d0723.chunk.js",
-    "static/js/991.dcb09cc8.chunk.js": "/photoAlbum/static/js/991.dcb09cc8.chunk.js",
-    "static/js/806.4307cd0d.chunk.js": "/photoAlbum/static/js/806.4307cd0d.chunk.js",
-    "static/js/570.2b4ce778.chunk.js": "/photoAlbum/static/js/570.2b4ce778.chunk.js",
-    "static/js/775.2d2575eb.chunk.js": "/photoAlbum/static/js/775.2d2575eb.chunk.js",
-    "static/js/869.39363c92.chunk.js": "/photoAlbum/static/js/869.39363c92.chunk.js",
-    "static/media/Roboto-Medium.ttf": "/photoAlbum/static/media/Roboto-Medium.7c8d04cd831df3033c8a.ttf",
-    "static/media/Roboto-Regular.ttf": "/photoAlbum/static/media/Roboto-Regular.fc2b5060f7accec5cf74.ttf",
-    "static/media/beach.jpg": "/photoAlbum/static/media/beach.bf4572b5b117fe4e1fd6.jpg",
-    "static/media/other.jpg": "/photoAlbum/static/media/other.4ecdaaec238e80270bff.jpg",
-    "static/media/places.jpg": "/photoAlbum/static/media/places.7ba336f29f7d5562b3f0.jpg",
-    "static/media/atrakcje.jpg": "/photoAlbum/static/media/atrakcje.ba977aef7c9984614788.jpg",
-    "static/media/mountain.jpg": "/photoAlbum/static/media/mountain.4261a3e36e0683dfa35d.jpg",
-    "static/media/ChangaOne-Regular.ttf": "/photoAlbum/static/media/ChangaOne-Regular.295d0ae8f9382acdd05a.ttf",
-    "static/media/party.jpg": "/photoAlbum/static/media/party.6818369e5b2cda0f6d72.jpg",
-    "static/media/family.jpg": "/photoAlbum/static/media/family.9c52fe48fe20c265deff.jpg",
-    "index.html": "/photoAlbum/index.html",
-    "main.93671a7a.css.map": "/photoAlbum/static/css/main.93671a7a.css.map",
-    "main.383143d5.js.map": "/photoAlbum/static/js/main.383143d5.js.map"
+    "main.css": "/album/static/css/main.c4bab3bb.css",
+    "main.js": "/album/static/js/main.e6954047.js",
+    "static/js/51.ef8d0723.chunk.js": "/album/static/js/51.ef8d0723.chunk.js",
+    "static/js/991.dcb09cc8.chunk.js": "/album/static/js/991.dcb09cc8.chunk.js",
+    "static/js/806.4307cd0d.chunk.js": "/album/static/js/806.4307cd0d.chunk.js",
+    "static/js/570.2b4ce778.chunk.js": "/album/static/js/570.2b4ce778.chunk.js",
+    "static/js/775.2d2575eb.chunk.js": "/album/static/js/775.2d2575eb.chunk.js",
+    "static/js/869.39363c92.chunk.js": "/album/static/js/869.39363c92.chunk.js",
+    "static/media/Roboto-Medium.ttf": "/album/static/media/Roboto-Medium.7c8d04cd831df3033c8a.ttf",
+    "static/media/Roboto-Regular.ttf": "/album/static/media/Roboto-Regular.fc2b5060f7accec5cf74.ttf",
+    "static/media/beach.jpg": "/album/static/media/beach.bf4572b5b117fe4e1fd6.jpg",
+    "static/media/other.jpg": "/album/static/media/other.4ecdaaec238e80270bff.jpg",
+    "static/media/places.jpg": "/album/static/media/places.7ba336f29f7d5562b3f0.jpg",
+    "static/media/atrakcje.jpg": "/album/static/media/atrakcje.ba977aef7c9984614788.jpg",
+    "static/media/mountain.jpg": "/album/static/media/mountain.4261a3e36e0683dfa35d.jpg",
+    "static/media/ChangaOne-Regular.ttf": "/album/static/media/ChangaOne-Regular.295d0ae8f9382acdd05a.ttf",
+    "static/media/party.jpg": "/album/static/media/party.6818369e5b2cda0f6d72.jpg",
+    "static/media/family.jpg": "/album/static/media/family.9c52fe48fe20c265deff.jpg",
+    "index.html": "/album/index.html",
+    "main.c4bab3bb.css.map": "/album/static/css/main.c4bab3bb.css.map",
+    "main.e6954047.js.map": "/album/static/js/main.e6954047.js.map"
   },
   "entrypoints": [
-    "static/css/main.93671a7a.css",
-    "static/js/main.383143d5.js"
+    "static/css/main.c4bab3bb.css",
+    "static/js/main.e6954047.js"
   ]
 }
