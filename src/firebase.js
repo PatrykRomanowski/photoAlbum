@@ -4,7 +4,7 @@ import { getAuth } from "firebase/auth";
 // import { getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDuus-sPfqmqdEbNbK6TCVAFnRbLuFsPhU",
+  apiKey: process.env.API_KEY_FIREBASE,
   authDomain: "photoalbum-36ef9.firebaseapp.com",
   projectId: "photoalbum-36ef9",
   storageBucket: "photoalbum-36ef9.appspot.com",
