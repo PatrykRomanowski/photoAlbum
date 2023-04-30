@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkalbum=self.webpackChunkalbum||[]).push([[570],{4570:function(a,e,u){a.exports=u.p+"static/media/mountain.4261a3e36e0683dfa35d.jpg"}}]);

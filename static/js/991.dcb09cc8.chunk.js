@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkalbum=self.webpackChunkalbum||[]).push([[991],{3991:function(e,b,a){e.exports=a.p+"static/media/beach.bf4572b5b117fe4e1fd6.jpg"}}]);
