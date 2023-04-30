@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
 
 import { listAll, ref } from "firebase/storage";
 import myStorage from "../firebase";
+
+import { albumActions } from "../store/album-context";
 
 import otherPhoto from "../photoBar/other.jpg"; // importujesz obrazek
 import "./yourAlbumComponent.css";
@@ -18,8 +21,14 @@ const AddPhotoComponent = () => {
   const [rodzina, setFamilyImage] = useState(null);
   const [inne, setOtherImage] = useState(null);
 
-  const getPhotosHandler = () => {
+  const navigate = useNavigate();
+
+  const dispatch = useDispatch();
+
+  const getPhotosHandler = (prefix) => {
     console.log("działa");
+    navigate("/showPhotos");
+    dispatch(albumActions.setActualID({ value: prefix }));
   };
 
   const listAllFolders = async () => {
@@ -35,7 +44,7 @@ const AddPhotoComponent = () => {
       const parts = prefix.name.split("__'__");
 
       return {
-        prefix: prefix.logo,
+        prefix: prefix.name,
         name: parts[0],
         date: parts[1],
         logo: parts[2],
@@ -97,13 +106,16 @@ const AddPhotoComponent = () => {
         break;
     }
     return (
-      <div onClick={getPhotosHandler} className="albumContainer">
+      <div
+        onClick={() => getPhotosHandler(item.prefix)}
+        className="albumContainer"
+      >
         <div className="itemContainer">
           <div className="itemData">{item.date}</div>
           <div className="itemName">{item.name}</div>
         </div>
         <div>
-          <img src={imageSrc} alt="My Image" />
+          <img className="itemPhoto" src={imageSrc} alt="My Image" />
         </div>
       </div>
     );

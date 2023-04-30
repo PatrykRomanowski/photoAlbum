@@ -3,6 +3,10 @@
   padding: 0;
 }
 
+body {
+  overflow-x: hidden;
+}
+
 @font-face {
   font-family: "Changa One";
   src: url("fonts/ChangaOne-Regular.ttf") format("truetype");

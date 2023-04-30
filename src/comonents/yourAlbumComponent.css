@@ -1,21 +1,68 @@
 .albumContainer {
   display: flex;
-  cursor: pointer;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   margin-top: 20px;
-}
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 50vw;
+  transition: all 0.2s ease-in-out;
 
-.itemData {
-}
+  &:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+  }
 
-.itemName {
-  width: 20vw;
+  .itemContainer {
+    display: flex;
+    flex-direction: column;
+    margin-right: 10px;
+  }
+
+  .itemData {
+    font-size: 0.8rem;
+    color: #999;
+  }
+
+  .itemName {
+    font-weight: bold;
+    margin-top: 5px;
+    text-transform: uppercase;
+    font-family: "Roboto-M";
+    color: #444;
+  }
+
+  .itemPhoto {
+    width: 300px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 5px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  }
 }
 
 .allAlbumContainer {
   margin-top: 50px;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .albumTitle {
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 30px;
+  text-transform: uppercase;
+  font-family: "Roboto-M";
+  color: #444;
+}
+
+@media (max-width: 800px) {
+  .albumContainer {
+    width: 90vw;
+  }
 }

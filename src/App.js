@@ -16,6 +16,7 @@ import AddPhotoComponent from "./comonents/addPhotoComponent";
 import YourAlbumComponent from "./comonents/yourAlbumComponent";
 import RegisterComponent from "./comonents/registerComponent";
 import Logout from "./comonents/logout";
+import ShowPhotos from "./comonents/showPhotoComponent";
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
             <Route path="/album" element={<YourAlbumComponent />} />
             <Route path="/register" element={<RegisterComponent />} />
             <Route path="/logout" element={<Logout />} />
+            <Route path="/showPhotos" element={<ShowPhotos />} />
           </Routes>
         </div>
       </Router>
