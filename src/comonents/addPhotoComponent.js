@@ -15,6 +15,8 @@ const YourAlbumComponent = () => {
   const [uploadDate, setUploadDate] = useState(new Date());
   const [albumTitle, setAlbumTitle] = useState("");
   const [selectedOption, setSelectedOption] = useState("");
+  const [modalOpen, setModalOpen] = useState(false);
+  const [modalMessage, setModalMessage] = useState("");
 
   const activeEmail = useSelector((state) => state.login.email);
 
@@ -60,24 +62,37 @@ const YourAlbumComponent = () => {
         activeEmail +
           "/" +
           albumTitle +
-          "_'_" +
+          "__'__" +
           formattedDate +
           "__'__" +
           selectedOption +
           "/" +
           file.name
       );
-      uploadBytes(childRef, file).then(() => {
-        getDownloadURL(childRef).then((url) => {
-          console.log(`Plik ${file.name} został przesłany. URL: ${url}`);
+      uploadBytes(childRef, file)
+        .then(() => {
+          getDownloadURL(childRef).then((url) => {
+            console.log(`Plik ${file.name} został przesłany. URL: ${url}`);
+          });
+        })
+        .catch((error) => {
+          console.log(
+            `Wystąpił błąd podczas przesyłania pliku ${file.name}: ${error}`
+          );
         });
-      });
     });
 
     setUploadDate(new Date());
     setAlbumTitle("");
     setFiles([]);
     setSelectedOption("");
+    setModalMessage("Zdjęcia zostały przesłane poprawnie.");
+    setModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setModalOpen(false);
+    setModalMessage("");
   };
 
   return (
@@ -143,6 +158,16 @@ const YourAlbumComponent = () => {
       <button className="addPhotoButton" onClick={uploadFiles}>
         Wyślij
       </button>
+      {modalOpen && (
+        <div className="modal">
+          <div className="modal-content">
+            <span className="close" onClick={closeModal}>
+              &times;
+            </span>
+            <p className="modal-message">{modalMessage}</p>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

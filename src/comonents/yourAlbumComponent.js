@@ -81,6 +81,7 @@ const AddPhotoComponent = () => {
   }, []);
 
   const albumElements = catalogsData.map((item) => {
+    console.log(item.logo);
     let imageSrc;
     switch (item.logo) {
       case "atrakcje":
