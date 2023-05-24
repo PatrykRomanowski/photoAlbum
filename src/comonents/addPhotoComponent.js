@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
 import React, { useCallback, useState } from "react";
 import { useDropzone } from "react-dropzone";
-import myStorage from "../firebase";
+import { myStorage } from "../firebase";
 import { uploadBytes, getDownloadURL, ref } from "firebase/storage";
 import DatePicker from "react-datepicker";
 import { format } from "date-fns";

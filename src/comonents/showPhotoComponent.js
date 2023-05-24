@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { listAll, ref, getDownloadURL } from "firebase/storage";
-import myStorage from "../firebase";
+import { myStorage } from "../firebase";
 import "react-image-gallery/styles/css/image-gallery.css";
 import ImageGallery from "react-image-gallery";
 import "./showPhotosComponent.css";

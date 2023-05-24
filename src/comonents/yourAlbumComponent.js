@@ -3,11 +3,10 @@ import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 
 import { listAll, ref } from "firebase/storage";
-import myStorage from "../firebase";
+import { myStorage } from "../firebase";
 
 import { albumActions } from "../store/album-context";
 
-import otherPhoto from "../photoBar/other.jpg"; // importujesz obrazek
 import "./yourAlbumComponent.css";
 
 const AddPhotoComponent = () => {
@@ -116,7 +115,7 @@ const AddPhotoComponent = () => {
           <div className="itemName">{item.name}</div>
         </div>
         <div>
-          <img className="itemPhoto" src={imageSrc} alt="My Image" />
+          <img className="itemPhoto" src={imageSrc} alt="example" />
         </div>
       </div>
     );
