@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/photoAlbum/static/css/main.74802b35.css",
-    "main.js": "/photoAlbum/static/js/main.9f2685f0.js",
+    "main.css": "/photoAlbum/static/css/main.6943d100.css",
+    "main.js": "/photoAlbum/static/js/main.bedf444f.js",
     "static/js/368.e76a4c2e.chunk.js": "/photoAlbum/static/js/368.e76a4c2e.chunk.js",
     "static/js/51.ef8d0723.chunk.js": "/photoAlbum/static/js/51.ef8d0723.chunk.js",
     "static/js/991.dcb09cc8.chunk.js": "/photoAlbum/static/js/991.dcb09cc8.chunk.js",
@@ -9,6 +9,7 @@
     "static/js/570.2b4ce778.chunk.js": "/photoAlbum/static/js/570.2b4ce778.chunk.js",
     "static/js/775.2d2575eb.chunk.js": "/photoAlbum/static/js/775.2d2575eb.chunk.js",
     "static/js/869.39363c92.chunk.js": "/photoAlbum/static/js/869.39363c92.chunk.js",
+    "static/media/titlePhoto.jpg": "/photoAlbum/static/media/titlePhoto.b7555799b7cbe8c6684f.jpg",
     "static/media/Roboto-Medium.ttf": "/photoAlbum/static/media/Roboto-Medium.7c8d04cd831df3033c8a.ttf",
     "static/media/Roboto-Regular.ttf": "/photoAlbum/static/media/Roboto-Regular.fc2b5060f7accec5cf74.ttf",
     "static/media/beach.jpg": "/photoAlbum/static/media/beach.bf4572b5b117fe4e1fd6.jpg",
@@ -20,11 +21,11 @@
     "static/media/party.jpg": "/photoAlbum/static/media/party.6818369e5b2cda0f6d72.jpg",
     "static/media/family.jpg": "/photoAlbum/static/media/family.9c52fe48fe20c265deff.jpg",
     "index.html": "/photoAlbum/index.html",
-    "main.74802b35.css.map": "/photoAlbum/static/css/main.74802b35.css.map",
-    "main.9f2685f0.js.map": "/photoAlbum/static/js/main.9f2685f0.js.map"
+    "main.6943d100.css.map": "/photoAlbum/static/css/main.6943d100.css.map",
+    "main.bedf444f.js.map": "/photoAlbum/static/js/main.bedf444f.js.map"
   },
   "entrypoints": [
-    "static/css/main.74802b35.css",
-    "static/js/main.9f2685f0.js"
+    "static/css/main.6943d100.css",
+    "static/js/main.bedf444f.js"
   ]
 }
