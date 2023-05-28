@@ -1,4 +1,6 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+
 import { Provider } from "react-redux";
 
 import "./App.css";
@@ -12,6 +14,7 @@ import YourAlbumComponent from "./comonents/yourAlbumComponent";
 import RegisterComponent from "./comonents/registerComponent";
 import Logout from "./comonents/logout";
 import ShowPhotos from "./comonents/showPhotoComponent";
+import TitlepageComponent from "./comonents/titlePageComponent";
 
 function App() {
   return (
@@ -19,8 +22,11 @@ function App() {
       <Router>
         <div className="App">
           <NavigarionComponent className="headerStyles" />
+
           <Routes>
-            <Route exact path="/" element={<LoginComponent />} />
+            <Route exact path="/" element={<TitlepageComponent />} />
+            <Route path="/login" element={<LoginComponent />} />
+
             <Route path="/addPhoto" element={<AddPhotoComponent />} />
             <Route path="/album" element={<YourAlbumComponent />} />
             <Route path="/register" element={<RegisterComponent />} />

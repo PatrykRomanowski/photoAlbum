@@ -1,0 +1,46 @@
+.title-page-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+}
+
+.title-text {
+  position: absolute;
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  left: 20px;
+  top: 50px;
+  font-family: "Roboto-M", sans-serif;
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 20px 80px;
+  text-transform: uppercase;
+  /* border: solid 12px; */
+
+  background: radial-gradient(
+    ellipse 50% 50% at center,
+    rgba(255, 255, 255, 1),
+    rgba(0, 0, 0, 0)
+  );
+}
+
+.homePage-btn {
+  text-decoration: none;
+  border: none;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 10px;
+  font-family: "Roboto-M";
+  text-transform: uppercase;
+  padding: 1.2rem 4rem;
+  font-size: 18px;
+  transition: linear 0.15s;
+  cursor: pointer;
+}
+
+.homePage-btn:hover {
+  background-color: rgba(255, 255, 255, 0.9);
+}

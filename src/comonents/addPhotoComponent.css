@@ -20,8 +20,14 @@
 }
 
 .inputStyle {
-  display: flex;
   align-self: center;
+  margin: 10px 0;
+  padding: 10px;
+  border: 1px solid gray;
+  border-radius: 5px;
+  width: 300px;
+  font-size: 16px;
+  font-family: "Roboto", sans-serif;
 }
 
 select {
@@ -32,11 +38,17 @@ select {
   width: 300px;
   font-size: 16px;
   font-family: "Roboto", sans-serif;
+  padding-bottom: 20px;
 }
 
 .addPhotoButton {
   width: 20%;
   font-family: "Roboto", sans-serif;
+  align-self: center;
+  margin: 60px;
+}
+.date-picker-position {
+  align-self: center;
 }
 
 .modal {
@@ -86,6 +98,30 @@ select {
 
 .close:hover {
   background-color: #0c7cd5;
+}
+
+.addPhotoDescription {
+  display: flex;
+  width: 100vw;
+  justify-content: center;
+  font-family: "Roboto";
+  text-transform: uppercase;
+  margin-top: 22px;
+}
+
+.addPhotoButton {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.addPhotoButton:hover {
+  background-color: #2196f3;
 }
 
 /* Google Fonts */

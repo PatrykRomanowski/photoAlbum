@@ -14,7 +14,7 @@ const RegisterComponent = () => {
   useEffect(() => {
     if (registerResult === "success" && showModal) {
       const timer = setTimeout(() => {
-        navigate("/");
+        navigate("/login");
       }, 3000);
 
       return () => clearTimeout(timer);

@@ -41,7 +41,10 @@ const YourAlbumComponent = () => {
       }
 
       console.log(acceptedFiles);
-      setFiles((prevFiles) => [...prevFiles, ...acceptedFiles]);
+      setFiles((prevFiles) => [
+        ...prevFiles,
+        ...acceptedFiles.filter((file) => !prevFiles.includes(file)),
+      ]);
     });
 
     rejectedFiles.forEach((file) => {
@@ -132,8 +135,12 @@ const YourAlbumComponent = () => {
         </ul>
       </div>
       <p className="addPhotoDescription">wybierz datę zdjęć:</p>
-      <div className="inputStyle">
-        <DatePicker selected={uploadDate} onChange={handleChange} />
+      <div className="date-picker-position">
+        <DatePicker
+          className="inputStyle"
+          selected={uploadDate}
+          onChange={handleChange}
+        />
       </div>
       <p className="addPhotoDescription">wpisz tytuł katalogu: </p>
       <input

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 
-import { listAll, ref } from "firebase/storage";
+import { listAll, ref, deleteObject } from "firebase/storage";
 import { myStorage } from "../firebase";
 
 import { albumActions } from "../store/album-context";
@@ -20,6 +20,8 @@ const AddPhotoComponent = () => {
   const [rodzina, setFamilyImage] = useState(null);
   const [inne, setOtherImage] = useState(null);
 
+  const [refresh, setRefresh] = useState(0);
+
   const navigate = useNavigate();
 
   const dispatch = useDispatch();
@@ -28,6 +30,30 @@ const AddPhotoComponent = () => {
     console.log("działa");
     navigate("/showPhotos");
     dispatch(albumActions.setActualID({ value: prefix }));
+  };
+
+  const deleteItem = async (event, prefix) => {
+    event.stopPropagation();
+    console.log("xD");
+    console.log(activeEmail);
+
+    const storageRef = ref(myStorage, "/" + activeEmail + "/" + prefix);
+
+    const { items } = await listAll(storageRef);
+    console.log(items);
+
+    try {
+      if (items.length > 0) {
+        // Usuń każdy plik w folderze
+        for (const item of items) {
+          await deleteObject(item);
+        }
+        console.log("Folder usunięty pomyślnie.");
+        setRefresh(refresh + 1);
+      }
+    } catch (error) {
+      console.log("Wystąpił błąd podczas usuwania folderu:", error);
+    }
   };
 
   const listAllFolders = async () => {
@@ -77,49 +103,62 @@ const AddPhotoComponent = () => {
     import("../photoBar/party.jpg").then((image) =>
       setPartyImage(image.default)
     );
-  }, []);
+  }, [refresh]);
 
-  const albumElements = catalogsData.map((item) => {
-    console.log(item.logo);
-    let imageSrc;
-    switch (item.logo) {
-      case "atrakcje":
-        imageSrc = atrakcje;
-        break;
-      case "morze":
-        imageSrc = morze;
-        break;
-      case "gory":
-        imageSrc = gory;
-        break;
-      case "miejsca":
-        imageSrc = miejsca;
-        break;
-      case "impreza":
-        imageSrc = impreza;
-        break;
-      case "rodzina":
-        imageSrc = rodzina;
-        break;
-      default:
-        imageSrc = inne;
-        break;
-    }
-    return (
-      <div
-        onClick={() => getPhotosHandler(item.prefix)}
-        className="albumContainer"
-      >
-        <div className="itemContainer">
-          <div className="itemData">{item.date}</div>
-          <div className="itemName">{item.name}</div>
+  const albumElements = catalogsData.map(
+    (item) => {
+      console.log(item.logo);
+      let imageSrc;
+      switch (item.logo) {
+        case "atrakcje":
+          imageSrc = atrakcje;
+          break;
+        case "morze":
+          imageSrc = morze;
+          break;
+        case "gory":
+          imageSrc = gory;
+          break;
+        case "miejsca":
+          imageSrc = miejsca;
+          break;
+        case "impreza":
+          imageSrc = impreza;
+          break;
+        case "rodzina":
+          imageSrc = rodzina;
+          break;
+        default:
+          imageSrc = inne;
+          break;
+      }
+      return (
+        <div className="albumContainerWithButton">
+          <div
+            onClick={() => getPhotosHandler(item.prefix)}
+            className="albumContainer"
+          >
+            <div className="itemContainer">
+              <div className="itemData">{item.date}</div>
+              <div className="itemName">{item.name}</div>
+            </div>
+            <div className="photoContainer">
+              <img className="itemPhoto" src={imageSrc} alt="example" />
+            </div>
+            <div className="deleteAlbum">
+              <button
+                className="delete-album-btn"
+                onClick={(event) => deleteItem(event, item.prefix)}
+              >
+                USUŃ
+              </button>
+            </div>
+          </div>
         </div>
-        <div>
-          <img className="itemPhoto" src={imageSrc} alt="example" />
-        </div>
-      </div>
-    );
-  });
+      );
+    },
+    [deleteItem]
+  );
 
   return (
     <div>

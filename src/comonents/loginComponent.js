@@ -40,7 +40,12 @@ const LoginComponent = () => {
   };
 
   return (
-    <div>
+    <div className="login-container">
+      <div className="text_info">
+        Aby przeglądać i tworzyć swoje albumy, załóż nowe konto. W celach
+        testowych zaloguj się na konto z danymi zawartymi na drugiej stronie
+        sprawozdania
+      </div>
       <form className="form-login" onSubmit={handleSubmit}>
         <p className="inputText">WPISZ LOGIN:</p>
         <input
