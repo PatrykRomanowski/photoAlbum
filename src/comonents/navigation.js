@@ -10,7 +10,7 @@ const NavigarionComponent = () => {
 
   const location = useLocation();
   const isRootPath =
-    location.pathname === "/" || location.pathname === "/photoAlbum";
+    location.pathname === "/photoAlbum" || location.pathname === "/";
 
   return (
     <div>

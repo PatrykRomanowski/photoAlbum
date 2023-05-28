@@ -15,7 +15,7 @@ const TitlepageComponent = () => {
       className="title-page-container"
       style={{ backgroundImage: `url(${backgroundImage})` }}
     >
-      <div className="title-text">Zachowaj swoje wspomnienia na dłużej.</div>
+      <div className="title-text">Zachowaj swoje wspomnienia na dłużej..</div>
       <button className="homePage-btn" onClick={keepGoing}>
         Zaczynamy
       </button>
