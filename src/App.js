@@ -26,7 +26,7 @@ function App() {
           <Routes>
             <Route exact path="/" element={<TitlepageComponent />} />
             <Route path="/login" element={<LoginComponent />} />
-            <Route path="/photoAlbum" element={<LoginComponent />} />
+            <Route path="/photoAlbum" element={<TitlepageComponent />} />
             <Route path="/addPhoto" element={<AddPhotoComponent />} />
             <Route path="/album" element={<YourAlbumComponent />} />
             <Route path="/register" element={<RegisterComponent />} />
