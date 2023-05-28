@@ -22,6 +22,10 @@ const AddPhotoComponent = () => {
 
   const [refresh, setRefresh] = useState(0);
 
+  const [showModal, setShowModal] = useState(false); // Stan modala
+
+  const [albumToDelete, setAlbumToDelete] = useState(null); // Stan przechowujący informacje o albumie do usunięcia
+
   const navigate = useNavigate();
 
   const dispatch = useDispatch();
@@ -36,6 +40,13 @@ const AddPhotoComponent = () => {
     event.stopPropagation();
     console.log("xD");
     console.log(activeEmail);
+
+    setAlbumToDelete(prefix); // Ustaw informacje o albumie do usunięcia
+    setShowModal(true); // Pokaż modal potwierdzenia usunięcia
+  };
+
+  const confirmDelete = async () => {
+    const prefix = albumToDelete;
 
     const storageRef = ref(myStorage, "/" + activeEmail + "/" + prefix);
 
@@ -54,6 +65,8 @@ const AddPhotoComponent = () => {
     } catch (error) {
       console.log("Wystąpił błąd podczas usuwania folderu:", error);
     }
+
+    setShowModal(false); // Ukryj modal potwierdzenia usunięcia
   };
 
   const listAllFolders = async () => {
@@ -105,60 +118,57 @@ const AddPhotoComponent = () => {
     );
   }, [refresh]);
 
-  const albumElements = catalogsData.map(
-    (item) => {
-      console.log(item.logo);
-      let imageSrc;
-      switch (item.logo) {
-        case "atrakcje":
-          imageSrc = atrakcje;
-          break;
-        case "morze":
-          imageSrc = morze;
-          break;
-        case "gory":
-          imageSrc = gory;
-          break;
-        case "miejsca":
-          imageSrc = miejsca;
-          break;
-        case "impreza":
-          imageSrc = impreza;
-          break;
-        case "rodzina":
-          imageSrc = rodzina;
-          break;
-        default:
-          imageSrc = inne;
-          break;
-      }
-      return (
-        <div className="albumContainerWithButton">
-          <div
-            onClick={() => getPhotosHandler(item.prefix)}
-            className="albumContainer"
-          >
-            <div className="itemContainer">
-              <div className="itemData">{item.date}</div>
-              <div className="itemName">{item.name}</div>
-            </div>
-            <div className="photoContainer">
-              <img className="itemPhoto" src={imageSrc} alt="example" />
-            </div>
-            <div className="deleteAlbum">
-              <button
-                className="delete-album-btn"
-                onClick={(event) => deleteItem(event, item.prefix)}
-              >
-                USUŃ
-              </button>
-            </div>
+  const albumElements = catalogsData.map((item) => {
+    console.log(item.logo);
+    let imageSrc;
+    switch (item.logo) {
+      case "atrakcje":
+        imageSrc = atrakcje;
+        break;
+      case "morze":
+        imageSrc = morze;
+        break;
+      case "gory":
+        imageSrc = gory;
+        break;
+      case "miejsca":
+        imageSrc = miejsca;
+        break;
+      case "impreza":
+        imageSrc = impreza;
+        break;
+      case "rodzina":
+        imageSrc = rodzina;
+        break;
+      default:
+        imageSrc = inne;
+        break;
+    }
+    return (
+      <div className="albumContainerWithButton">
+        <div
+          onClick={() => getPhotosHandler(item.prefix)}
+          className="albumContainer"
+        >
+          <div className="itemContainer">
+            <div className="itemData">{item.date}</div>
+            <div className="itemName">{item.name}</div>
+          </div>
+          <div className="photoContainer">
+            <img className="itemPhoto" src={imageSrc} alt="example" />
+          </div>
+          <div className="deleteAlbum">
+            <button
+              className="delete-album-btn"
+              onClick={(event) => deleteItem(event, item.prefix)}
+            >
+              USUŃ
+            </button>
           </div>
         </div>
-      );
-    },
-    [deleteItem]
-  );
+      </div>
+    );
+  });
 
   return (
     <div>
@@ -166,6 +176,30 @@ const AddPhotoComponent = () => {
         <h2 className="albumTitle">Wybierz wydarzenie</h2>
         {albumElements}
       </div>
+
+      {showModal && (
+        <div className="modal">
+          <div className="modal-content">
+            <div className="modal-header">
+              <h2>Potwierdzenie usunięcia</h2>
+              <span className="close" onClick={() => setShowModal(false)}>
+                &times;
+              </span>
+            </div>
+            <div className="modal-body">
+              Czy na pewno chcesz usunąć ten album?
+            </div>
+            <div className="modal-footer">
+              <button className="btn-login" onClick={confirmDelete}>
+                Tak
+              </button>
+              <button className="btn-login" onClick={() => setShowModal(false)}>
+                Nie
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
