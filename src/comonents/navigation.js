@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { useNavigate, useLocation } from "react-router-dom";
@@ -7,10 +7,14 @@ import "./navigation.css";
 
 const NavigarionComponent = () => {
   const actualEmail = useSelector((state) => state.login.email);
-
   const location = useLocation();
-  const isRootPath =
-    location.pathname === "/photoAlbum" || location.pathname === "/";
+
+  const [isRootPath, setIsRootPath] = useState(
+    location.pathname === "/photoAlbum" || location.pathname === "/"
+  );
+
+  // const isRootPath =
+  //   location.pathname === "/photoAlbum" || location.pathname === "/";
 
   return (
     <div>
