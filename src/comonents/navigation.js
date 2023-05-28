@@ -9,16 +9,9 @@ const NavigarionComponent = () => {
   const actualEmail = useSelector((state) => state.login.email);
   const location = useLocation();
 
-  const [isRootPath, setIsRootPath] = useState(
-    location.pathname === "/photoAlbum" || location.pathname === "/"
-  );
-
-  // const isRootPath =
-  //   location.pathname === "/photoAlbum" || location.pathname === "/";
-
   return (
     <div>
-      {!isRootPath ? (
+      {actualEmail ? (
         <div className="header">
           <div className="menu">
             {actualEmail ? (
