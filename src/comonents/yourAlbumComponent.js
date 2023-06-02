@@ -6,6 +6,7 @@ import { listAll, ref, deleteObject } from "firebase/storage";
 import { myStorage } from "../firebase";
 
 import { albumActions } from "../store/album-context";
+import { hiddenNavActions } from "../store/hiddenNav-context";
 
 import "./yourAlbumComponent.css";
 
@@ -43,6 +44,13 @@ const AddPhotoComponent = () => {
 
     setAlbumToDelete(prefix); // Ustaw informacje o albumie do usunięcia
     setShowModal(true); // Pokaż modal potwierdzenia usunięcia
+  };
+
+  const addPhotos = async (event, prefix) => {
+    event.stopPropagation();
+    console.log(prefix);
+    navigate("/addAdditionalPhotos");
+    dispatch(albumActions.setActualAlbumPrefix({ value: prefix }));
   };
 
   const confirmDelete = async () => {
@@ -116,6 +124,8 @@ const AddPhotoComponent = () => {
     import("../photoBar/party.jpg").then((image) =>
       setPartyImage(image.default)
     );
+
+    dispatch(hiddenNavActions.show());
   }, [refresh]);
 
   const albumElements = catalogsData.map((item) => {
@@ -150,12 +160,22 @@ const AddPhotoComponent = () => {
           onClick={() => getPhotosHandler(item.prefix)}
           className="albumContainer"
         >
+          <div className="itemName itemCategory">KATEGORIA: {item.logo}</div>
+
           <div className="itemContainer">
             <div className="itemData">{item.date}</div>
             <div className="itemName">{item.name}</div>
           </div>
           <div className="photoContainer">
             <img className="itemPhoto" src={imageSrc} alt="example" />
+          </div>
+          <div className="deleteAlbum">
+            <button
+              className="delete-album-btn"
+              onClick={(event) => addPhotos(event, item.prefix)}
+            >
+              DODAJ ZDJĘCIA
+            </button>
           </div>
           <div className="deleteAlbum">
             <button

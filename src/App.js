@@ -14,6 +14,7 @@ import RegisterComponent from "./comonents/registerComponent";
 import Logout from "./comonents/logout";
 import ShowPhotos from "./comonents/showPhotoComponent";
 import TitlepageComponent from "./comonents/titlePageComponent";
+import AddAdditionalPhotosComponent from "./comonents/addAdditionalPhotos";
 
 function App() {
   return (
@@ -21,7 +22,6 @@ function App() {
       <Router>
         <div className="App">
           <NavigarionComponent className="headerStyles" />
-
           <Routes>
             <Route exact path="/" element={<TitlepageComponent />} />
             <Route path="/login" element={<LoginComponent />} />
@@ -31,6 +31,11 @@ function App() {
             <Route path="/register" element={<RegisterComponent />} />
             <Route path="/logout" element={<Logout />} />
             <Route path="/showPhotos" element={<ShowPhotos />} />
+            <Route path="/showPhotos" element={<ShowPhotos />} />
+            <Route
+              path="/addAdditionalPhotos"
+              element={<AddAdditionalPhotosComponent />}
+            />
           </Routes>
         </div>
       </Router>

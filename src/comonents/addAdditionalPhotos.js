@@ -1,32 +1,28 @@
 import { useSelector } from "react-redux";
 import React, { useCallback, useState } from "react";
 import { useDropzone } from "react-dropzone";
+import { useNavigate } from "react-router-dom";
 import { myStorage } from "../firebase";
-import { uploadBytes, getDownloadURL, ref } from "firebase/storage";
-import DatePicker from "react-datepicker";
-import { format } from "date-fns";
+import {
+  uploadBytes,
+  getDownloadURL,
+  ref as storageRef,
+} from "firebase/storage";
 
 import "./addPhotoComponent.css";
 
 import "react-datepicker/dist/react-datepicker.css";
 
-const YourAlbumComponent = () => {
+const AddAdditionalPhotosComponent = () => {
   const [files, setFiles] = useState([]);
-  const [uploadDate, setUploadDate] = useState(new Date());
-  const [albumTitle, setAlbumTitle] = useState("");
-  const [selectedOption, setSelectedOption] = useState("");
+
   const [modalOpen, setModalOpen] = useState(false);
   const [modalMessage, setModalMessage] = useState("");
 
   const activeEmail = useSelector((state) => state.login.email);
+  const actualPrefix = useSelector((state) => state.album.actualAlbumPrefix);
 
-  const handleOptionChange = (event) => {
-    setSelectedOption(event.target.value);
-  };
-
-  const handleChange = (date) => {
-    setUploadDate(date);
-  };
+  const navigate = useNavigate();
 
   const onDrop = useCallback((acceptedFiles, rejectedFiles) => {
     acceptedFiles.forEach((file) => {
@@ -58,19 +54,9 @@ const YourAlbumComponent = () => {
 
   const uploadFiles = () => {
     files.forEach((file) => {
-      const formattedDate = format(uploadDate, "d-M-yyyy");
-
-      const childRef = ref(
+      const childRef = storageRef(
         myStorage,
-        activeEmail +
-          "/" +
-          albumTitle +
-          "__'__" +
-          formattedDate +
-          "__'__" +
-          selectedOption +
-          "/" +
-          file.name
+        `${activeEmail}/${actualPrefix}/${file.name}`
       );
       uploadBytes(childRef, file)
         .then(() => {
@@ -85,10 +71,7 @@ const YourAlbumComponent = () => {
         });
     });
 
-    setUploadDate(new Date());
-    setAlbumTitle("");
     setFiles([]);
-    setSelectedOption("");
     setModalMessage("Zdjęcia zostały przesłane poprawnie.");
     setModalOpen(true);
   };
@@ -96,11 +79,12 @@ const YourAlbumComponent = () => {
   const closeModal = () => {
     setModalOpen(false);
     setModalMessage("");
+    navigate("/album");
   };
 
   return (
     <div className="addPhotoContainer">
-      <h2 className="addPhotoTextTitle">Dodaj nowy katalog ze zdjęciami</h2>
+      <h2 className="addPhotoTextTitle">Dodaj zdjęcia do wybranego katalogu</h2>
       <div
         {...getRootProps()}
         className={`dropzone ${isDragActive ? "active" : ""}`}
@@ -134,34 +118,7 @@ const YourAlbumComponent = () => {
           ))}
         </ul>
       </div>
-      <p className="addPhotoDescription">wybierz datę zdjęć:</p>
-      <div className="date-picker-position">
-        <DatePicker
-          className="inputStyle"
-          selected={uploadDate}
-          onChange={handleChange}
-        />
-      </div>
-      <p className="addPhotoDescription">wpisz tytuł katalogu: </p>
-      <input
-        className="inputStyle"
-        value={albumTitle}
-        onChange={(e) => setAlbumTitle(e.target.value)}
-      />
-      <p className="addPhotoDescription">wybierz okoliczności zdjęć:</p>
-      <select
-        className="inputStyle"
-        value={selectedOption}
-        onChange={handleOptionChange}
-      >
-        <option value="">Wybierz...</option>
-        <option value="gory">Góry</option>
-        <option value="morze">Morze</option>
-        <option value="atrakcje">Atrakcje</option>
-        <option value="miejsca">Miejsca</option>
-        <option value="rodzina">Rodzina</option>
-        <option value="inne">Inne</option>
-      </select>
+
       <button className="addPhotoButton" onClick={uploadFiles}>
         Wyślij
       </button>
@@ -179,4 +136,4 @@ const YourAlbumComponent = () => {
   );
 };
 
-export default YourAlbumComponent;
+export default AddAdditionalPhotosComponent;

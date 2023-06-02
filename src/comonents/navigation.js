@@ -7,11 +7,11 @@ import "./navigation.css";
 
 const NavigarionComponent = () => {
   const actualEmail = useSelector((state) => state.login.email);
-  const location = useLocation();
+  const showNav = useSelector((state) => state.showHiddenNav.showNav);
 
   return (
     <div>
-      {actualEmail ? (
+      {actualEmail && showNav ? (
         <div className="header">
           <div className="menu">
             {actualEmail ? (

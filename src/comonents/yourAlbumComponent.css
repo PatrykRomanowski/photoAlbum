@@ -60,6 +60,10 @@
   align-items: center;
 }
 
+.itemCategory {
+  margin-right: 50px;
+}
+
 .albumTitle {
   font-size: 2rem;
   font-weight: bold;

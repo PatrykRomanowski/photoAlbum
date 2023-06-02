@@ -1,12 +1,20 @@
-import { createSlice } from "@reduxjs/toolkit";
+import {
+  createSlice
+} from "@reduxjs/toolkit";
 
 const albumContext = createSlice({
   name: "albumData",
-  initialState: { actualAlbumID: "" },
+  initialState: {
+    actualAlbumID: "",
+    actualAlbumPrefix: ""
+  },
   reducers: {
     setActualID(state, action) {
       state.actualAlbumID = action.payload.value;
     },
+    setActualAlbumPrefix(state, action) {
+      state.actualAlbumPrefix = action.payload.value;
+    }
   },
 });
 
