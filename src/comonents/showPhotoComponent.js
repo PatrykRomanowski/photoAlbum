@@ -2,6 +2,7 @@ import React, { useState, useEffect, lazy } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { listAll, ref, getDownloadURL } from "firebase/storage";
 import { myStorage } from "../firebase";
+import { useNavigate } from "react-router-dom";
 
 import { hiddenNavActions } from "../store/hiddenNav-context";
 
@@ -15,6 +16,11 @@ const ShowPhotos = () => {
   const [imageList, setImageList] = useState([]);
 
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const backHandler = () => {
+    navigate("/album");
+  };
 
   useEffect(() => {
     dispatch(hiddenNavActions.hidden());
@@ -40,6 +46,9 @@ const ShowPhotos = () => {
 
   return (
     <div className="showPhotosContainer">
+      <button className="showPhotoButton" onClick={backHandler}>
+        POWRÓT
+      </button>
       <div className="custom-image-gallery">
         <ImageGallery
           items={imageList}
